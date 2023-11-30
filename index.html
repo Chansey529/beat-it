@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+    content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
   <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Beat-It: Beat-Synchronized Multi-Condition 3D Dance Generation</title>
@@ -22,15 +23,13 @@
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./resources/icon/michael-jackson.svg">
 
@@ -40,563 +39,318 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
+
 <body>
-
-<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</nav> -->
-
-
-
-
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Beat-It: Beat-Synchronized Multi-Condition 3D Dance Generation</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              CVPR2024 Anonymous Paper, ID-2898</span>
-            <!-- <span class="author-block">
-              <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://utkarshsinha.com">Utkarsh Sinha</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="https://jonbarron.info">Jonathan T. Barron</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
-            </span> -->
-          </div>
-
-          <!-- <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Washington,</span>
-            <span class="author-block"><sup>2</sup>Google Research</span>
-          </div> -->
-
-         
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- <section class="teaser" width="100%">
-  <div class="container"></div>
-    <div class="carousel results-carousel">
-      <div class="item item-steve">
-        <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-          <source src="./resources/teaser/teaser-1.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-chair-tp">
-        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-          <source src="./resources/teaser/teaser-2.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-shiba">
-        <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-          <source src="./resources/teaser/teaser-3.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-fullbody">
-        <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-          <source src="./resources/teaser/teaser-4.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-      <div class="item item-blueshirt">
-        <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-          <source src="./resources/teaser/teaser-5.mp4"
-                  type="video/mp4">
-        </video>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
+  <section class="hero">
     <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <div style="float: left; height: 10px;"><img src="./resources/icon/title_logo.png"
+                style="height: 50px;max-width: 100%;"></div>
+            <div style="margin-left: 0px; padding-left: 0px;">
+              <h1 class="title is-1 publication-title">Beat-It: Beat-Synchronized Multi-Condition 3D Dance Generation
+              </h1>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">CVPR2024 Anonymous Paper, ID-2898</span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <font color="#DC143C">Best viewed with audio 🎧</font>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- <section class="section"> -->
+    <div class="hero-body heros">
       <div class="container">
-        <div class="carousel results-carousel">
-          <div class="item item-steve">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item itema item-steve">
             <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-              <source src="./resources/teaser/teaser-1.mp4"
-                      type="video/mp4">
+              <source src="./resources/teaser/teaser-1.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="item item-chair-tp">
+          <div class="item itema item-chair-tp">
             <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-              <source src="./resources/teaser/teaser-2.mp4"
-                      type="video/mp4">
+              <source src="./resources/teaser/teaser-2.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="item item-shiba">
+          <div class="item itema item-shiba">
             <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-              <source src="./resources/teaser/teaser-3.mp4"
-                      type="video/mp4">
+              <source src="./resources/teaser/teaser-3.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="item item-fullbody">
+          <div class="item itema item-fullbody">
             <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-              <source src="./resources/teaser/teaser-4.mp4"
-                      type="video/mp4">
+              <source src="./resources/teaser/teaser-4.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="item item-blueshirt">
+          <div class="item itema item-blueshirt">
             <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-              <source src="./resources/teaser/teaser-5.mp4"
-                      type="video/mp4">
+              <source src="./resources/teaser/teaser-5.mp4" type="video/mp4">
             </video>
           </div>
         </div>
       </div>
+
       <h2 class="subtitle has-text-centered">
         Beat-synchronized keyframe-controlled dance generation with <span class="dnerf">Beat-It</span>.
       </h2>
+      <p>
+        To demonstrate the superiority of our method in beat-synchronized keyframe-controlled dance generation, we feed
+        our model with the same music and beats with varying keyframes for dance generation.
+      </p>
+      <p>
+        The left graphs illustrates the mean joint velocities over time, where the dashed lines indicate the beats.
+      </p>
     </div>
-  </div>
-</section>
+  <!-- </section> -->
 
 
-<!-- <section class="section">
-  <div class="container is-max-desktop">
+  <!-- <section class="section"> -->
+    <div class="container is-max-desktop">
+      <div class="columns is-centered ">
+        <div class="column is-full-width">
+          <div style="margin: auto; width: 250px;line-height: 100%;height: 50px">
+            <div style="float: left">
+              <img src="./resources/icon/abstract_logo.png" style="height: 45px;max-width: 100%;">
+            </div>
+            <div style="margin-left: 10px; padding-left: 20px;">
+              <h2 class="title is-3">Abstract</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="content has-text-justified">
+            <p>
+              Dance, as an art form, fundamentally hinges on the precise synchronization with musical beats. However,
+              achieving aesthetically pleasing dance sequences from music is challenging, with existing methods often
+              falling short in controllability and beat alignment.
+            </p>
+            <p>
+              To address these shortcomings, this paper introduces Beat-It, a novel framework for beat-specific, key
+              pose-guided dance generation. Unlike prior approaches, Beat-It uniquely integrates explicit beat awareness
+              and key pose guidance, effectively resolving two main issues: the misalignment of generated dance motions
+              with musical beats, and the inability to map key poses to specific beats, critical for practical
+              choreography. Our approach disentangles beat conditions from music using a nearest beat distance
+              representation and employs a hierarchical multi-condition fusion mechanism. This mechanism seamlessly
+              integrates key poses, beats, and music features, mitigating condition conflicts and offering rich,
+              multi-conditioned guidance for dance generation. Additionally, a specially designed beat alignment loss
+              ensures the generated dance movements remain in sync with the musical beats. Extensive experiments confirm
+              Beat-It's superiority over existing state-of-the-art methods in terms of beat alignment and motion
+              controllability.
+            </p>
+          </div>
+        </div>
+      </div>
+  <!-- </section> -->
 
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">In the Wild</h2>
-          <div class="content has-text-centered">
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered ">
+        <div class="column is-full-width">
+          <div style="margin: auto;width: 250px;line-height: 100%;height: 50px">
+            <div style="float: left">
+              <img src="./resources/icon/method_logo.png" style="height: 45px;max-width: 100%;">
+            </div>
+            <div style="margin-left: 10px; padding-left: 25px;">
+              <h2 class="title is-3">Method</h2>
+            </div>
+          </div>
+          <h2 class="title is-3" align="center"></h2>
+          <div class="columns is-vcentered interpolation-panel">
+            <img src="./resources/method/overview.png" width=auto />
+          </div>
+        </div>
+      </div>
+  </section>
 
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered ">
+        <div class="column is-full-width">
 
+          <div style="margin: auto;width: 250px;line-height: 100%;height: 50px">
+            <div style="float: left">
+              <img src="./resources/icon/comparison_logo.png" style="height: 45px;max-width: 100%;">
+            </div>
+            <div style="margin-left: 10px; padding-left: 20px;">
+              <h2 class="title is-3">Comparison</h2>
+            </div>
+          </div>
+
+          <p>
+            We compare our method with the state-of-the-art methods EDGE, Bailando, and FACT on the AIST++ dataset. Note
+            that only EDGE supports keyframe control while the other two methods do not.
+          </p>
+        
+          <div class="hero-body heros">
             <div class="container">
-              <div class="carousel results-carousel">
-                <div class="item item-steve">
-                  <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                    <source src="./res/in-the-wild/wild-1.mp4"
-                            type="video/mp4">
+              <div id="results-carousel" class="carousel results-carousel">
+                <div class="item itema item-steve">
+                  <video poster="" id="steve" autoplay controls muted playsinline height="100%">
+                    <source src="./resources/comparison/comparison-1.mp4" type="video/mp4">
                   </video>
                 </div>
-                <div class="item item-chair-tp">
-                  <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-                    <source src="./res/in-the-wild/wild-2.mp4"
-                            type="video/mp4">
+                <div class="item itema item-chair-tp">
+                  <video poster="" id="steve" autoplay controls muted playsinline height="100%">
+                    <source src="./resources/comparison/comparison-2.mp4" type="video/mp4">
                   </video>
                 </div>
-                <div class="item item-shiba">
-                  <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-                    <source src="./res/in-the-wild/wild-3.mp4"
-                            type="video/mp4">
+                <div class="item itema item-shiba">
+                  <video poster="" id="steve" autoplay controls muted playsinline height="100%">
+                    <source src="./resources/comparison/comparison-3.mp4" type="video/mp4">
                   </video>
                 </div>
-                <div class="item item-fullbody">
-                  <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-                    <source src="./res/in-the-wild/wild-4.mp4"
-                            type="video/mp4">
+                <div class="item itema item-fullbody">
+                  <video poster="" id="steve" autoplay controls muted playsinline height="100%">
+                    <source src="./resources/comparison/comparison-4.mp4" type="video/mp4">
                   </video>
                 </div>
-                <div class="item item-blueshirt">
-                  <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-                    <source src="./res/in-the-wild/wild-5.mp4"
-                            type="video/mp4">
-                  </video>
-                </div>
-                <div class="item item-mask">
-                  <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-                    <source src="./res/in-the-wild/wild-6.mp4"
-                            type="video/mp4">
+                <div class="item itema item-fullbody">
+                  <video poster="" id="steve" autoplay controls muted playsinline height="100%">
+                    <source src="./resources/comparison/comparison-5.mp4" type="video/mp4">
                   </video>
                 </div>
               </div>
             </div>
-
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-
-
-
-
-
-
-
-
-
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
           <p>
-            Dance, as an art form, fundamentally hinges on the precise synchronization with musical beats. However, achieving aesthetically pleasing dance sequences from music is challenging, with existing methods often falling short in controllability and beat alignment.
-          </p>
-          <p>
-          To address these shortcomings, this paper introduces Beat-It, a novel framework for beat-specific, key pose-guided dance generation. Unlike prior approaches, Beat-It uniquely integrates explicit beat awareness and key pose guidance, effectively resolving two main issues: the misalignment of generated dance motions with musical beats, and the inability to map key poses to specific beats, critical for practical choreography. Our approach disentangles beat conditions from music using a nearest beat distance representation and employs a hierarchical multi-condition fusion mechanism. This mechanism seamlessly integrates key poses, beats, and music features, mitigating condition conflicts and offering rich, multi-conditioned guidance for dance generation. Additionally, a specially designed beat alignment loss ensures the generated dance movements remain in sync with the musical beats. Extensive experiments confirm Beat-It's superiority over existing state-of-the-art methods in terms of beat alignment and motion controllability.
+            Specifically, Bailando generates key points in Cartesian space, necessitating resource-intensive
+            post-processing for animating 3D characters. To ensure an equitable evaluation, we opted for visualizing
+            skeleton stick figures instead of using its original representation in our comparisons.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
+  </section>
 
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Method</h2>
-        <div class="columns is-vcentered interpolation-panel">
-          <img src="./resources/method/overview.png"
-          width=auto/>
-
-      </div>
-    </div>
-    <!--/ Paper video. -->
-  </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Comparison</h2>
-        <!-- <div style="text-align: center;">
-          <div style="display:inline-block;">a) Keyframes</div>
-          <div style="display:inline-block;">b) Ours</div>
-          <div style="display:inline-block;">c) EDGE</div>
-          <div style="display:inline-block;">d) Bailando</div>
-          <div style="display:inline-block;">e) FACT</div>
-        </div> -->
-
-        <!-- <div style="display:inline-block;background:#f00;">div1</div>
-        <div style="display:inline-block;background:#f00;">div1</div>
-        <div style="display:inline-block;background:#f00;">div1</div> -->
-          <!-- <div class="column">
-            keyframe
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <div style="margin: auto;width: 250px;line-height: 100%;height: 50px">
+            <div style="float: left">
+              <img src="./resources/icon/ablation_logo.png" style="height: 45px;max-width: 100%;">
+            </div>
+            <div style="margin-left: 10px; padding-left: 20px;">
+              <h2 class="title is-3">Ablation</h2>
+            </div>
           </div>
-          <div class="column">
-            keyframe
-          </div> -->
-          <div class="content has-text-centered">
-            <video id="replay-video"
-                  controls
-                  muted
-                  preload
-                  playsinline
-                  width="75%">
-              <source src="./resources/comparison/comparison-1.mp4"
-                      type="video/mp4">
-            </video>
-
-            <video id="replay-video"
-                  controls
-                  muted
-                  preload
-                  playsinline
-                  width="75%">
-              <source src="./resources/comparison/comparison-2.mp4"
-                      type="video/mp4">
-            </video>
-            <video id="replay-video"
-                  controls
-                  muted
-                  preload
-                  playsinline
-                  width="75%">
-              <source src="./resources/comparison/comparison-3.mp4"
-                      type="video/mp4">
-            </video>
-            <video id="replay-video"
-                  controls
-                  muted
-                  preload
-                  playsinline
-                  width="75%">
-              <source src="./resources/comparison/comparison-4.mp4"
-                      type="video/mp4">
-            </video>
-            <video id="replay-video"
-                  controls
-                  muted
-                  preload
-                  playsinline
-                  width="75%">
-              <source src="./resources/comparison/comparison-5.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-<!-- 
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">In the Wild</h2>
-          <div class="container">
-            <div class="carousel results-carousel">
-              <div class="item item-steve">
-                <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                  <source src="./res/in-the-wild/wild-1.mp4"
-                          type="video/mp4">
-                </video>
-              </div>
-              <div class="item item-chair-tp">
-                <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-                  <source src="./res/in-the-wild/wild-2.mp4"
-                          type="video/mp4">
-                </video>
-              </div>
-              <div class="item item-shiba">
-                <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-                  <source src="./res/in-the-wild/wild-3.mp4"
-                          type="video/mp4">
-                </video>
-              </div>
-              <div class="item item-fullbody">
-                <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-                  <source src="./res/in-the-wild/wild-4.mp4"
-                          type="video/mp4">
-                </video>
-              </div>
-              <div class="item item-blueshirt">
-                <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-                  <source src="./res/in-the-wild/wild-5.mp4"
-                          type="video/mp4">
-                </video>
-              </div>
-              <div class="item item-mask">
-                <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-                  <source src="./res/in-the-wild/wild-6.mp4"
-                          type="video/mp4">
-                </video>
+          <div class="hero-body heros">
+            <div class="container">
+              <div id="results-carousel" class="carousel results-carousel">
+                <div class="item itema item-shiba">
+                  <video poster="" id="steve" controls muted playsinline height="200%">
+                    <source src="./resources/ablation/ours-hierarchical_fusion.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item itema item-chair-tp">
+                  <video poster="" id="steve" controls muted playsinline height="200%">
+                    <source src="./resources/ablation/ours-beat_aware_dilation.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item itema item-steve">
+                  <video poster="" id="steve" controls muted playsinline height="200%">
+                    <source src="./resources/ablation/ours-beat_alignment_loss.mp4" type="video/mp4">
+                  </video>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div> -->
-
-
-
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Ablation</h2>
-          <div class="content has-text-centered">
-            <video id="replay-video"
-                  controls
-                  muted
-                  preload
-                  playsinline
-                  width="75%">
-              <source src="./resources/ablation/ours-beat_alignment_loss.mp4"
-                      type="video/mp4">
-            </video>
-            <video id="replay-video"
-                  controls
-                  muted
-                  preload
-                  playsinline
-                  width="75%">
-              <source src="./resources/ablation/ours-beat_aware_dilation.mp4"
-                      type="video/mp4">
-            </video>
-            <video id="replay-video"
-                  controls
-                  muted
-                  preload
-                  playsinline
-                  width="75%">
-              <source src="./resources/ablation/ours-hierarchical_fusion.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">In the Wild</h2>
-          <div class="left-center-right">
-            <style>
-                .left-center-right {
-                    display: flex;
-                }
-        
-                .left {
-                  flex: 1;
-                    /* width: 300px; */
-                }
-        
-                .right {
-                    flex: 1;
-                    /* width: 300px; */
-                }
-        
-                .center {
-                    flex: 1;
-                }
-            </style>
-            <div class="left">
-              <video id="replay-video" autoplay controls muted loop playsinline>
-                <source src="./resources/in-the-wild/red.mp4"
-                        type="video/mp4">
-              </video>
+  <!-- <section class="section"> -->
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <div style="margin: auto;width: 250px;line-height: 100%;height: 50px">
+            <div style="float: left">
+              <img src="./resources/icon/in_the_wild_logo.png" style="height: 45px;max-width: 100%;">
             </div>
-            <div class="center">
-              <video id="replay-video" autoplay controls muted loop playsinline>
-                <source src="./resources/in-the-wild/green.mp4"
-                        type="video/mp4">
-              </video>
-            </div>
-            <div class="right">
-              <video id="replay-video" autoplay controls muted loop playsinline>
-                <source src="./resources/in-the-wild/light_blue.mp4"
-                        type="video/mp4">
-              </video>
+            <div style="margin-left: 10px; padding-left: 20px;">
+              <h2 class="title is-3">In the Wild</h2>
             </div>
           </div>
-
+          <div class="hero-body heros">
+            <div class="container">
+              <div id="results-carousel" class="carousel results-carousel">
+                <div class="item itema item-steve">
+                  <video poster="" id="steve" autoplay controls muted playsinline height="100%">
+                    <source src="./resources/in-the-wild/red.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item itema item-chair-tp">
+                  <video poster="" id="steve" autoplay controls muted playsinline height="100%">
+                    <source src="./resources/in-the-wild/green.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="item itema item-shiba">
+                  <video poster="" id="steve" autoplay controls muted playsinline height="100%">
+                    <source src="./resources/in-the-wild/light_blue.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- <section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
-  </div>
-</section> -->
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
           <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
+            To illustrate the generalization ability of our method, we also evaluate our method on in-the-wild music
+            videos. We randomly select different samples from the <a
+              href="https://aioz-ai.github.io/AIOZ-GDANCE">AIOZ-GDANCE</a> dataset for evaluation. The left side showcases
+            the input keyframes, while the generated outcomes are displayed on the right.
           </p>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  <!-- </section> -->
+
+  <section  class="section">
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <a class="icon-link" href="./static/videos/nerfies_paper.pdf">
+            <i class="fas fa-file-pdf"></i>
+          </a>
+          <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                This website is licensed under a <a rel="license"
+                  href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                  Commons Attribution-ShareAlike 4.0 International License</a>.
+              </p>
+              <p>
+                This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
+                  code</a> of this website,
+                we just ask that you link back to this page in the footer.
+                Please remember to remove the analytics code included in the header of the website which
+                you do not want on your website.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+
 
 </body>
+
 </html>

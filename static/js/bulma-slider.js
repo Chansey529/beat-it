@@ -184,6 +184,7 @@ var bulmaSlider = function (_EventEmitter) {
       var style = window.getComputedStyle(this.element, null);
       // Measure width of range input
       var sliderWidth = parseInt(style.getPropertyValue('width'), 10);
+ 
 
       // Figure out placement percentage between left and right of input
       if (!this.element.getAttribute('min')) {
@@ -459,3 +460,5 @@ var EventEmitter = function () {
 /***/ })
 /******/ ])["default"];
 });
+
+
